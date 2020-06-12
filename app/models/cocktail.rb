@@ -4,4 +4,6 @@ class Cocktail < ApplicationRecord
   has_many :ingredients, through: :doses
   # @cocktail.ingredients
   validates :name, presence: true, uniqueness: true
+  # add a foto to the app
+  has_one_attached :photo
 end
