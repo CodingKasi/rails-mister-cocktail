@@ -1,7 +1,10 @@
 class Dose < ApplicationRecord
-  belongs_to :ingredient
   belongs_to :cocktail
+  # @dose.cocktail => one instance
+  belongs_to :ingredient
+  # @dose.ingredient => one instance
 
+  validates :cocktail, uniqueness: { scope: :ingredient }
   validates :description, presence: true
-  validates :ingredient, uniqueness: { scope: :cocktail }
 end
+
